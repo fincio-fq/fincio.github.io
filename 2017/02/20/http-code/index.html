@@ -1,0 +1,930 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="http状态码," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="解决方法点击阅读全文当用户在防问Internet信息服务(IIS)的服务器上的内容时时，IIS服务器响应请求，会自动返回一个表示该请求的状态的数字代码,提供关于相关请求的状态信息。同样当搜索引擎蜘蛛在抓取的过程中，服务器也会将相关的http状态码反馈给搜索引擎，搜索引擎通过了解http状态代码, 可以更详细的分析日志中的访问情况。100 - 表示已收到请求的一部分，正在继续发送余下部分。101 -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http协议状态码含义大全及故障解决">
+<meta property="og:url" content="http://blog.fincio-fq.com/2017/02/20/http-code/index.html">
+<meta property="og:site_name" content="fincio's Blog">
+<meta property="og:description" content="解决方法点击阅读全文当用户在防问Internet信息服务(IIS)的服务器上的内容时时，IIS服务器响应请求，会自动返回一个表示该请求的状态的数字代码,提供关于相关请求的状态信息。同样当搜索引擎蜘蛛在抓取的过程中，服务器也会将相关的http状态码反馈给搜索引擎，搜索引擎通过了解http状态代码, 可以更详细的分析日志中的访问情况。100 - 表示已收到请求的一部分，正在继续发送余下部分。101 -">
+<meta property="og:updated_time" content="2017-02-22T16:56:56.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http协议状态码含义大全及故障解决">
+<meta name="twitter:description" content="解决方法点击阅读全文当用户在防问Internet信息服务(IIS)的服务器上的内容时时，IIS服务器响应请求，会自动返回一个表示该请求的状态的数字代码,提供关于相关请求的状态信息。同样当搜索引擎蜘蛛在抓取的过程中，服务器也会将相关的http状态码反馈给搜索引擎，搜索引擎通过了解http状态代码, 可以更详细的分析日志中的访问情况。100 - 表示已收到请求的一部分，正在继续发送余下部分。101 -">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.fincio-fq.com/2017/02/20/http-code/"/>
+
+
+
+
+
+  <title> http协议状态码含义大全及故障解决 | fincio's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3cf676d905b850a965e85cac5eecf719";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">fincio's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">the stack of it nerds</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.fincio-fq.com/2017/02/20/http-code/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="fincio">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="fincio's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="fincio's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                http协议状态码含义大全及故障解决
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-20T14:25:14+08:00">
+                2017-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/答疑解惑/" itemprop="url" rel="index">
+                    <span itemprop="name">答疑解惑</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/20/http-code/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/http-code/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="解决方法点击阅读全文"><a href="#解决方法点击阅读全文" class="headerlink" title="解决方法点击阅读全文"></a>解决方法点击阅读全文</h4><p>当用户在防问Internet信息服务(IIS)的服务器上的内容时时，IIS服务器响应请求，会自动返回一个表示该请求的状态的数字代码,提供关于相关请求的状态信息。同样当搜索引擎蜘蛛在抓取的过程中，服务器也会将相关的http状态码反馈给搜索引擎，搜索引擎通过了解http状态代码, 可以更详细的分析日志中的访问情况。<br>100 - 表示已收到请求的一部分，正在继续发送余下部分。<br>101 - 切换协议。<br>2xx - 成功　服务器成功地接受了客户端请求。<br>200 - 确定。客户端请求已成功。<br>201 - 已创建。<br>202 - 已接受。<br>203 - 非权威性信息。<br>204 - 无内容。<br><a id="more"></a><br>205 - 重置内容。<br>206 - 部分内容。<br>300 - 针对收到请求，服务器可执行多种操作。<br>301 - 永久移动转移，请求的内容已永久移动其他新位置。<br>302 - 临时移动转移，请求的内容已临时移动新的位置<br>304 - 未修改。自从上次请求后，请求的内容未修改过。<br>307 - 临时重定向。服务器目前从不同位置响应请求，但请求者应继续使用原有位置来进行以后的请求。<br>400 - 错误的请求。<br>401 -访问被拒绝。IIS定义了许多不同的401错误，它们指明更为具体的错误原因。这些具体的错代                             码在浏览器中显示，但不在 IIS 日志中显示：<br>401.1 - 登录失败。<br>401.2 - 服务器配置导致登录失败。<br>401.3 - 由于 ACL 对资源的限制而未获得授权。<br>401.4 - 筛选器授权失败。<br>401.5 - ISAPI/CGI 应用程序授权失败。<br>401.7 - 访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。<br>403 - 禁止访问：IIS 定义了许多不同的 403 错误，它们指明更为具体的错误原因：<br>403.1 - 执行访问被禁止。<br>403.2 - 读访问被禁止。<br>403.3 - 写访问被禁止。<br>403.4 - 要求 SSL.<br>403.5 - 要求 SSL 128.<br>403.6 - IP 地址被拒绝。<br>403.7 - 要求客户端证书。<br>403.8 - 站点访问被拒绝。<br>403.9 - 用户数过多。<br>403.10 - 配置无效。<br>403.11 - 密码更改。<br>403.12 - 拒绝访问映射表。<br>403.13 - 客户端证书被吊销。<br>403.14 - 拒绝目录列表。<br>403.15 - 超出客户端访问许可。<br>403.16 - 客户端证书不受信任或无效。<br>403.17 - 客户端证书已过期或尚未生效。<br>403.18 - 在当前的应用程序池中不能执行所请求的 URL.这个错误代码为 IIS 6.0 所专用。<br>403.19 - 不能为这个应用程序池中的客户端执行 CGI.这个错误代码为 IIS 6.0 所专用。<br>403.20 - Passport 登录失败。这个错误代码为 IIS 6.0 所专用。<br>404 - 未找到请求的内容。<br>404.0 - 未找到文件或目录。<br>404.1 - 无法在所请求的端口上访问 Web站点。<br>404.2 - Web 服务扩展锁定策略阻止本请求。<br>404.3 - MIME 映射策略阻止本请求。<br>405 - 用来访问本页面的 HTTP 谓词不被允许(方法不被允许)<br>406 - 客户端浏览器不接受所请求页面的 MIME 类型。<br>407 - 要求进行代理身份验证。<br>412 - 前提条件失败。<br>413 - 请求实体太大。<br>414 - 请求 URI 太长。<br>415 - 不支持的媒体类型。<br>416 - 所请求的范围无法满足。<br>417 - 执行失败。<br>423 - 锁定的错误。<br>500 - 服务器内部错误。<br>500.12 - 应用程序正忙于在 Web 服务器上重新启动。<br>500.13 - Web 服务器太忙。<br>500.15 - 不允许直接请求 Global.asa.<br>500.16 - UNC 授权凭据不正确。这个错误代码为 IIS 6.0 所专用。<br>500.18 - URL 授权存储不能打开。这个错误代码为 IIS 6.0 所专用。<br>500.100 - 内部 ASP 错误。<br>501 - 服务器无法完成请求的功能。<br>502 - 服务器用作网关或代理服务器时收到了无效响应。<br>502.1 - CGI 应用程序超时。<br>502.2 - CGI 应用程序出错。<br>503 - 服务不可用。这个错误代码为 IIS 6.0 所专用。<br>504 - 网关超时。<br>505 - HTTP 版本不受支持。<br>　　<br> 英文版：<br>100：Continue<br>101：Switching Protocols<br>102：Processing<br>200：OK<br>201：Created<br>202：Accepted<br>203：Non-Authoriative Information<br>204：No Content<br>205：Reset Content<br>206：Partial Content<br>207：Multi-Status<br>300：Multiple Choices<br>301：Moved Permanently<br>302：Found<br>303：See Other<br>304：Not Modified<br>305：Use Proxy<br>306：(Unused)<br>307：Temporary Redirect<br>400：Bad Request<br>401：Unauthorized<br>402：Payment Granted<br>403：Forbidden<br>404：File Not Found<br>405：Method Not Allowed<br>406：Not Acceptable<br>407：Proxy Authentication Required<br>408：Request Time-out<br>409：Conflict<br>410：Gone<br>411：Length Required<br>412：Precondition Failed<br>413：Request Entity Too Large<br>414：Request-URI Too Large<br>415：Unsupported Media Type<br>416：Requested range not satisfiable<br>417：Expectation Failed<br>422：Unprocessable Entity　<br>423：Locked<br>424：Failed Dependency<br>500：Internal Server Error　<br>501：Not Implemented<br>502：Bad Gateway<br>503：Service Unavailable<br>504：Gateway Timeout<br>505：HTTP Version Not Supported<br>507：Insufficient Storage<br>　　<br>常见的 HTTP 状态代码及其原因：<br>200 - 成功。 IIS 已成功处理发送的请求。<br>304 - 未修改。 客户端请求的内容已在其缓存中，内容自缓存以来尚未被修改过。客户端使用内容的缓存副本，而不从服务器下载内容。<br>401.1 - 登录失败。 登录不成功，可能因为用户名或密码访问无效。<br>401.3 - 服务列表对资源的限制而未获得授权。 表示存在NTFS权限问题。或者对试图访问的文件具备相应的权限，也可能发生此错误。<br>403.1 - 执行访问被禁止。<br>下面是导致此错误信息的两个常见原因：<br>您没有足够的执行许可。例如，如果试图访问的 ASP 页所在的目录权限设为“无”，或者，试图执行的 CGI 脚本在的目录权限为“只允许脚本”，将出现此错误信息。若要修改执行权限，请在 Microsoft 管理控制台 (MMC)中右击目录，然后依次单击属性和目录选项卡，确保为试图访问的内容设置适当的执行权限。<br>您没有将试图执行的文件类型的脚本映射设置为识别所使用的谓词(例如，GET 或 POST)。若要验证这一点，请在 MMC 中右击目录，依次单击属性、目录选项卡和配置，然后验证相应文件类型的脚本映射是否设置为允许所使用的谓词。<br>403.2 - 读访问被禁止。验证是否已将IIS设置为允许对目录进行读访问。另外，如果您正在使用默认文件，请验证该文件是否存在。<br>403.3 - 写访问被禁止。 验证IIS权限和NTFS限是否已设置以便向该目录授予写访问权。<br>403.4 - 要求 SSL.禁用要求安全通道选项，或使用 HTTPS 代替 HTTP 来访问该页面。<br>403.5 - 要求 SSL 128.禁用要求 128 位加密选项，或使用支持 128 位加密的浏览器以查看该页面。<br>403.6 - IP地址被拒绝。服务器配置拒绝访问您目前的IP地址。<br>403.7 - 要求客户端证书。您已把您的服务器配置为要求客户端身份验证证书，但您未安装有效的客户端证书。<br>403.8 - 站点访问被拒绝。您已为您用来访问服务器的域设置了域名限制。<br>403.9 - 用户数过多。与该服务器连接的用户数量超过了IIS设置的连接数。<br>403.12 - 拒绝访问映射表。 您要访问的页面要求提供客户端证书，但映射到您的客户端证书的用户 ID 已被拒绝访问该文件。<br>404 - 未找到。 发生此错误的原因是您试图访问的文件已被移走或删除。<br>500 - 内部服务器错误。 造成500错误常见原因有：ASP语法出错、ACCESS数据库连接语句出错、文件引用与包含路径出错、使用了服务器不支持的组件如FSO等<br>500.12 - 服务器错误:Web 服务器上的应用程序正在重新启动。 这表示您在 IIS 重新启动应用程序的过程中试图加载 ASP 页。刷新页面后，此信息即会消失。如果刷新页面后，此信息再次出现，可能是防病毒软件正在扫描 Global.asa 文件。<br>500-100.ASP - ASP 错误。 如果试图加载的 ASP 页中含有错误代码，将出现此错误信息。若要获得更确切的错误信息，请禁用友好 HTTP 错误信息。默认情况下，只会在默认 Web 站点上启用此错误信息。<br>502 - 网关错误。 如果试图运行的 CGI 脚本不返回有效的 HTTP 标头集，将出现此错误信息。<br>　　<br>1、错误号401.1 - 未经授权：访问由于凭据无效被拒绝。由于用户匿名访问使用的账号(默认是IUSR<em>机器名)被禁用，或者没有权限访问计算机，将造成用户无法访问。<br>解决方案：<br>(1)查看IIS管理器中站点安全设置的匿名帐户是否被禁用，如果是，请尝试用以下办法启用：<br>控制面板-&gt;管理工具-&gt;计算机管理-&gt;本地用户和组，将IUSR</em>机器名账号启用。如果还没有解决，请继续下一步。<br>(2)查看本地安全策略中，IIS管理器中站点的默认匿名访问帐号或者其所属的组是否有通过网络访问服务器的权限，如果没有尝试用以下步骤赋予权限：<br>开始-&gt;程序-&gt;管理工具-&gt;本地安全策略-&gt;安全策略-&gt;本地策略-&gt;用户权限分配，双击“从网络访问此计算机”，添加IIS默认用户或者其所属的组。<br>注意：一般自定义 IIS默认匿名访问帐号都属于组，为了安全，没有特殊需要，请遵循此规则。<br>　　<br>2、错误号401.2 HTTP 错误 401.2 - 未经授权：访问由于服务器配置被拒绝。原因：关闭了匿名身份验证<br>解决方案：运行inetmgr，打开站点属性-&gt;目录安全性-&gt;身份验证和访问控制-&gt;选中“启用匿名访问”，输入用户名，或者点击“浏览”选择合法的用户，并两次输入密码后确定。<br>　　<br>3、错误号：401.3 HTTP 错误 401.3 - 未经授权：访问由于 ACL 对所请求资源的设置被拒绝。<br>原因：IIS匿名用户一般属于Guests组，而我们一般把存放网站的硬盘的权限只分配给administrators组，这时候按照继承原则，网站文件夹也只有administrators组的成员才能访问，导致IIS匿名用户访问该文件的NTFS权限不足，从而导致页面无法访问。<br>解决方案：给IIS匿名用户访问网站文件夹的权限，方法：进入该文件夹的安全选项，添加IIS匿名用户，并赋予相应权限，一般是读、写。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http状态码/" rel="tag"># http状态码</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/18/web网站/" rel="next" title="前端几个有用的网站">
+                <i class="fa fa-chevron-left"></i> 前端几个有用的网站
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/22/vue-localStoragee/" rel="prev" title="vue-localStorage本地存储代码">
+                vue-localStorage本地存储代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/20/http-code/"
+           data-title="http协议状态码含义大全及故障解决" data-url="http://blog.fincio-fq.com/2017/02/20/http-code/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="fincio" />
+          <p class="site-author-name" itemprop="name">fincio</p>
+           
+              <p class="site-description motion-element" itemprop="description">这里是起点,但绝不是终点</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法点击阅读全文"><span class="nav-number">1.</span> <span class="nav-text">解决方法点击阅读全文</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fincio</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fincio"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
