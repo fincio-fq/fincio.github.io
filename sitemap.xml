@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.fincio-fq.com/2017/02/18/web%E7%BD%91%E7%AB%99/</loc>
+    
+    <lastmod>2017-02-23T07:40:59.294Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.fincio-fq.com/2017/02/22/vue-localStoragee/</loc>
     
     <lastmod>2017-02-22T16:57:12.339Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://blog.fincio-fq.com/about/index.html</loc>
     
     <lastmod>2017-02-18T16:04:09.636Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.fincio-fq.com/2017/02/18/web%E7%BD%91%E7%AB%99/</loc>
-    
-    <lastmod>2017-02-18T15:06:19.953Z</lastmod>
     
   </url>
   
